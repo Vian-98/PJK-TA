@@ -55,6 +55,34 @@ Judul 2/Topologi.png
 
 🎥 Video Demo: [Klik untuk menonton di YouTube](https://youtu.be/Rx4NL9ceT74)
 
+## 🧩 Judul 3 — Lab 3.4.6: Konfigurasi VLAN, Trunking, dan Inter-VLAN Routing
+
+<img width="575" height="314" alt="Topologi" src="https://github.com/user-attachments/assets/69b0521e-e216-4f63-a228-e403706f8d04" />
+
+### 📖 Deskripsi
+Lab ini mendemonstrasikan implementasi jaringan yang lebih kompleks, dimulai dari pemisahan jaringan menggunakan **VLAN**, menghubungkan switch menggunakan **Trunking (802.1Q)**, hingga mengaktifkan komunikasi antar-VLAN menggunakan metode **"Router-on-a-Stick"**.
+
+### ⚙️ Poin Konfigurasi Utama
+- Pembuatan **VLAN** (VLAN 10 untuk Operasi & VLAN 99 untuk Manajemen) di kedua switch.
+- Penetapan port switch ke VLAN spesifik (mode akses), seperti F0/6 di S1 dan F0/18 di S2 ke VLAN 10.
+- Konfigurasi **Trunking 802.1Q** secara manual antar switch (S1 & S2) pada port F0/1.
+- Penyesuaian **Native VLAN** ke VLAN 1000 untuk keamanan.
+- Penambahan **Router (R1)** untuk melakukan **Inter-VLAN Routing**.
+- Pembuatan **sub-interface** pada router untuk setiap VLAN (misalnya, `g0/0/1.10` & `g0/0/1.99`) dengan enkapsulasi `dot1q`.
+- Konfigurasi port trunk pada switch (f0/3) yang terhubung ke router R1.
+- Pengaturan **`ip default-gateway`** pada SVI switch (S1 & S2) ke alamat sub-interface router VLAN 99.
+- **Verifikasi konektivitas penuh** antar perangkat di VLAN yang berbeda (misalnya, PC-A di VLAN 10 kini dapat ping ke S1 di VLAN 99).
+
+### 📂 File Proyek
+  Judul 3/TA Judul 3 - M.Favian Rizki.pkt
+  
+### 🖧 Aset Pendukung (Topologi & Hasil)
+* `Judul 3/Topologi.png`
+* `Judul 3/ping dari PC-A.png` (Hasil akhir konektivitas penuh)
+* `Judul 3/ping beda vlan dari pc.png` (Kondisi sebelum Inter-VLAN routing)
+* `Judul 3/ping beda vlan dari switch.png` (Kondisi sebelum Inter-VLAN routing)
+
+🎥 Video Demo: [Klik untuk menonton di YouTube](https://youtu.be/AucfRNUlrWk)
 
 ---
 
